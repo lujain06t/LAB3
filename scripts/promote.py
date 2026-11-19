@@ -27,7 +27,7 @@ from mlflow import MlflowClient
 REGISTERED_NAME = "churn-model"
 ARTIFACTS = Path("artifacts")
 CHAMPION_FILE = ARTIFACTS / "champion.json"
-LATENCY_BUDGET_MS = 25.0  # Slowest measured candidate was 17.9723 ms; keep margin for slower CI runners.keep margin for slower CI runners.
+LATENCY_BUDGET_MS = 25.0  # Latency budget with room for slower CI runners.keep margin for slower CI runners
 MIN_GAIN = 0.010  # Require a one-percentage-point F1 improvement before replacing the champion.
 
 
