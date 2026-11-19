@@ -51,24 +51,7 @@ def preprocessing() -> ColumnTransformer:
 # TODO 1: compare three model families and justify the trade-offs in MODEL_SELECTION.md.
 # These candidates use distinct settings so the comparison is meaningful, not just renamed models.
 CANDIDATES = {
-    # A compact, interpretable baseline; balancing classes may improve churn recall.
-    "logreg_balanced": LogisticRegression(C=0.5, max_iter=1200, class_weight="balanced"),
-    # Bagged trees capture non-linear interactions; depth and leaf size limit complexity.
-    "random_forest_limited": RandomForestClassifier(
-        n_estimators=200,
-        max_depth=8,
-        min_samples_leaf=3,
-        class_weight="balanced_subsample",
-        random_state=42,
-        n_jobs=1,
-    ),
-    # Boosted shallow trees test whether sequential corrections improve F1 at low latency.
-    "gradient_boosting_shallow": GradientBoostingClassifier(
-        n_estimators=120,
-        learning_rate=0.05,
-        max_depth=2,
-        random_state=42,
-    ),
+    "weak_logreg": LogisticRegression(C=0.00001, max_iter=1000)
 }
 
 
